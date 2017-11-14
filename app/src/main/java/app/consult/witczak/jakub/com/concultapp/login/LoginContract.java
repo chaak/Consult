@@ -5,5 +5,13 @@ package app.consult.witczak.jakub.com.concultapp.login;
  * Copyright (C), 2017
  * All rights reserved.
  */
-public class LoginContract {
+public interface LoginContract {
+
+    interface View {
+
+    }
+
+    interface Presenter {
+
+    }
 }
