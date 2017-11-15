@@ -1,9 +1,10 @@
 package app.consult.witczak.jakub.com.concultapp.model;
 
 import com.parse.ParseClassName;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
-import java.util.List;
+import app.consult.witczak.jakub.com.concultapp.utils.UserKey;
 
 /**
  * Created by JakubWitczak on 14.11.2017.
@@ -18,26 +19,26 @@ public class User extends ParseUser {
     }
 
     public boolean getIsStudent() {
-        return getBoolean("is_student");
+        return getBoolean(UserKey.IS_STUDENT);
     }
 
     public void setIsStudent(boolean isStudent) {
-        put("is_student", isStudent);
+        put(UserKey.IS_STUDENT, isStudent);
     }
 
-    public List<Student> getStudents() {
-        return getList("student_list");
+    public ParseRelation<Student> getStudents() {
+        return getRelation(UserKey.STUDENT_LIST);
     }
 
-    public void setStudents(List<Student> students) {
-        put("student_list", students);
+    public void setStudents(ParseRelation<Student> students) {
+        put(UserKey.STUDENT_LIST, students);
     }
 
-    public List<Tutor> getTutors() {
-        return getList("tutor_list");
+    public ParseRelation<Tutor> getTutors() {
+        return getRelation(UserKey.TUTOR_LIST);
     }
 
-    public void setTutors(List<Tutor> tutors) {
-        put("tutor_list", tutors);
+    public void setTutors(ParseRelation<Tutor> tutors) {
+        put(UserKey.TUTOR_LIST, tutors);
     }
 }

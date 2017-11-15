@@ -7,6 +7,8 @@ import com.parse.ParseObject;
 import java.util.Date;
 import java.util.List;
 
+import app.consult.witczak.jakub.com.concultapp.utils.TutorKey;
+
 /**
  * Created by JakubWitczak on 14.11.2017.
  * Copyright (C), 2017
@@ -19,82 +21,82 @@ public class Tutor extends ParseObject {
     }
 
     public String getFirstName() {
-        return getString("first_name");
+        return getString(TutorKey.FIRST_NAME);
     }
 
     public void setFirstName(String firstName) {
-        put("first_name", firstName);
+        put(TutorKey.FIRST_NAME, firstName);
     }
 
     public String getLastName() {
-        return getString("last_name");
+        return getString(TutorKey.LAST_NAME);
     }
 
     public void setLastName(String lastName) {
-        put("last_name", lastName);
+        put(TutorKey.FIRST_NAME, lastName);
     }
 
     public String getEmail() {
-        return getString("email");
+        return getString(TutorKey.EMAIL);
     }
 
     public void setEmail(String email) {
-        put("email", email);
+        put(TutorKey.EMAIL, email);
     }
 
     public String getPhoneNumber() {
-        return getString("phone_number");
+        return getString(TutorKey.PHONE_NUMBER);
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        put("phone_number", phoneNumber);
+        put(TutorKey.PHONE_NUMBER, phoneNumber);
     }
 
     public Date getBirthday() {
-        return getDate("birthday");
+        return getDate(TutorKey.BIRTHDAY);
     }
 
     public void setBirthday(String birthday) {
-        put("birthday", birthday);
+        put(TutorKey.BIRTHDAY, birthday);
     }
 
     public String getDescription() {
-        return getString("description");
+        return getString(TutorKey.DESCRIPTION);
     }
 
     public void setDescription(String description) {
-        put("description", description);
+        put(TutorKey.DESCRIPTION, description);
     }
 
     public ParseFile getProfileImage() {
-        return getParseFile("profile_photo");
+        return getParseFile(TutorKey.PROFILE_PHOTO);
     }
 
     public void setProfileImage(ParseFile profileImage) {
-        put("profile_photo", profileImage);
+        put(TutorKey.PROFILE_PHOTO, profileImage);
     }
 
     public String getCategory() {
-        return getString("category");
+        return getString(TutorKey.CATEGORY);
     }
 
     public void setCategory(String category) {
-        put("category", category);
+        put(TutorKey.CATEGORY, category);
     }
 
     public List<Task> getTasks() {
-        return getList("taskList");
+        return getList(TutorKey.TASK_LIST);
     }
 
     public void setTasks(List<Task> tasks) {
-        put("taskList", tasks);
+        put(TutorKey.TASK_LIST, tasks);
     }
 
     public List<Student> getStudents() {
-        return getList("student_list");
+        return getList(TutorKey.STUDENT_LIST);
     }
 
     public void setStudents(List<Student> students) {
-        put("student_list", students);
+        put(TutorKey.STUDENT_LIST, students);
     }
 }

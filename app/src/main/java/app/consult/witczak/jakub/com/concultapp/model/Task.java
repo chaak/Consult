@@ -4,6 +4,8 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import app.consult.witczak.jakub.com.concultapp.utils.TaskKey;
+
 /**
  * Created by JakubWitczak on 14.11.2017.
  * Copyright (C), 2017
@@ -16,58 +18,58 @@ public class Task extends ParseObject {
     }
 
     public String getTitle() {
-        return getString("title");
+        return getString(TaskKey.TITLE);
     }
 
     public void setTitle(String title) {
-        put("title", title);
+        put(TaskKey.TITLE, title);
     }
 
     public String getCategory() {
-        return getString("category");
+        return getString(TaskKey.CATEGORY);
     }
 
     public void setCategory(String category) {
-        put("category", category);
+        put(TaskKey.CATEGORY, category);
     }
 
     public String getDescription() {
-        return getString("description");
+        return getString(TaskKey.DESCRIPTION);
     }
 
     public void setDescription(String description) {
-        put("description", description);
+        put(TaskKey.DESCRIPTION, description);
     }
 
     public Boolean getToDelete() {
-        return getBoolean("to_delete");
+        return getBoolean(TaskKey.TO_DELETE);
     }
 
     public void setToDelete(Boolean toDelete) {
-        put("to_delete", toDelete);
+        put(TaskKey.TO_DELETE, toDelete);
     }
 
     public ParseFile getTaskImage() {
-        return getParseFile("image_path");
+        return getParseFile(TaskKey.IMAGE_PATH);
     }
 
     public void setTaskImage(ParseFile taskImage) {
-        put("image_path", taskImage);
+        put(TaskKey.IMAGE_PATH, taskImage);
     }
 
     public Student getRecipientStudent() {
-        return (Student) get("student");
+        return (Student) get(TaskKey.STUDENT);
     }
 
     public void setRecipientStudent(Student recipientStudent) {
-        put("student", recipientStudent);
+        put(TaskKey.STUDENT, recipientStudent);
     }
 
     public Tutor getRecipientTutor() {
-        return (Tutor) get("tutor");
+        return (Tutor) get(TaskKey.TUTOR);
     }
 
     public void setRecipientTutor(Tutor recipientTutor) {
-        put("tutor", recipientTutor);
+        put(TaskKey.TUTOR, recipientTutor);
     }
 }
