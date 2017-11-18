@@ -1,33 +1,33 @@
 package app.consult.witczak.jakub.com.concultapp.login;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
-import com.parse.ParseObject;
 
 import app.consult.witczak.jakub.com.concultapp.R;
-import app.consult.witczak.jakub.com.concultapp.model.Student;
-import app.consult.witczak.jakub.com.concultapp.model.Task;
-import app.consult.witczak.jakub.com.concultapp.model.Tutor;
-import app.consult.witczak.jakub.com.concultapp.model.User;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginContract.View {
+
+    private LoginPresenter presenter;
+    private TextView email;
+    private TextView password;
+    private TextInputLayout emailInput;
+    private TextInputLayout passwordInput;
+    private Button signInButton;
+    private Button signUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        registerSubclasses();
+        presenter = new LoginPresenter(this);
+        presenter.registerSubclasses();
         parseServerInitialization();
-    }
-
-    private void registerSubclasses() {
-        ParseObject.registerSubclass(User.class);
-        ParseObject.registerSubclass(Student.class);
-        ParseObject.registerSubclass(Tutor.class);
-        ParseObject.registerSubclass(Task.class);
     }
 
     private void parseServerInitialization() {

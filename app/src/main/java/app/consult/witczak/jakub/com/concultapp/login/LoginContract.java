@@ -12,6 +12,7 @@ public interface LoginContract {
     }
 
     interface Presenter {
+        void registerSubclasses();
 
     }
 }
