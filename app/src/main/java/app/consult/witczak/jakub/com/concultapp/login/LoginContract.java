@@ -9,10 +9,19 @@ public interface LoginContract {
 
     interface View {
 
+        String getUsername();
+
+        String getPassword();
+
+        void startStudentPanel();
+
+        void startTutorPanel();
+
     }
 
     interface Presenter {
-        void registerSubclasses();
+
+        void handleLogin();
 
     }
 }

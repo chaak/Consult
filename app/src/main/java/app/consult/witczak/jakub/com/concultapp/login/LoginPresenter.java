@@ -1,10 +1,12 @@
 package app.consult.witczak.jakub.com.concultapp.login;
 
-import com.parse.ParseObject;
+import android.content.Context;
+import android.widget.Toast;
 
-import app.consult.witczak.jakub.com.concultapp.model.Student;
-import app.consult.witczak.jakub.com.concultapp.model.Task;
-import app.consult.witczak.jakub.com.concultapp.model.Tutor;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 import app.consult.witczak.jakub.com.concultapp.model.User;
 
 /**
@@ -15,16 +17,32 @@ import app.consult.witczak.jakub.com.concultapp.model.User;
 public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginContract.View view;
+    private Context context;
+    private User user = new User();
 
-    LoginPresenter(LoginContract.View view) {
+    LoginPresenter(LoginContract.View view, Context context) {
         this.view = view;
+        this.context = context;
     }
 
     @Override
-    public void registerSubclasses() {
-        ParseObject.registerSubclass(User.class);
-        ParseObject.registerSubclass(Student.class);
-        ParseObject.registerSubclass(Tutor.class);
-        ParseObject.registerSubclass(Task.class);
+    public void handleLogin() {
+        ParseUser.logInInBackground(view.getUsername(), view.getPassword(),
+                new LogInCallback() {
+                    @Override
+                    public void done(ParseUser parseUser, ParseException e) {
+                        if (parseUser != null && user != null) {
+                            // TODO: 19.11.2017 find tutor or student based on User and assign current user
+                            if (user.getIsStudent()) {
+                                view.startStudentPanel();
+                            } else {
+                                view.startTutorPanel();
+                            }
+                        } else {
+                            Toast.makeText(context, "Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
     }
 }

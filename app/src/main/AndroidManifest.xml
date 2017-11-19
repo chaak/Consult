@@ -30,7 +30,9 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
 
-        <activity android:name=".register.RegisterActivity"></activity>
+        <activity android:name=".register.activity.RegisterActivity" />
+        <activity android:name=".panel.student.StudentPanelActivity" />
+        <activity android:name=".panel.tutor.TutorPanelActivity"></activity>
     </application>
 
 </manifest>
