@@ -1,14 +1,15 @@
-package app.consult.witczak.jakub.com.concultapp.login;
+package app.consult.witczak.jakub.com.concultapp.login.fragment;
+
+import android.app.Activity;
 
 /**
- * Created by JakubWitczak on 12.11.2017.
+ * Created by JakubWitczak on 19.11.2017.
  * Copyright (C), 2017
  * All rights reserved.
  */
-public interface LoginContract {
+public interface LoginFragmentContract {
 
     interface View {
-
         String getUsername();
 
         String getPassword();
@@ -17,11 +18,12 @@ public interface LoginContract {
 
         void startTutorPanel();
 
+        Activity getActivity();
+
+        void showSnackBar(String message);
     }
 
     interface Presenter {
-
         void handleLogin();
-
     }
 }

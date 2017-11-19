@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterFragm
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         this.toolbarMenu = menu;
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.register_toolbar_menu, menu);
         return true;
     }
 

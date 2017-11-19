@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="app.consult.witczak.jakub.com.concultapp.panel.tutor.TutorPanelActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tutor Panel" />
+
 </android.support.constraint.ConstraintLayout>
