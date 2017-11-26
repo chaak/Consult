@@ -4,7 +4,6 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
-import java.util.Date;
 import java.util.List;
 
 import app.consult.witczak.jakub.com.concultapp.utils.StudentKey;
@@ -20,6 +19,7 @@ public class Student extends ParseObject {
     public Student() {
     }
 
+
     public String getFirstName() {
         return getString(StudentKey.FIRST_NAME);
     }
@@ -34,6 +34,14 @@ public class Student extends ParseObject {
 
     public void setLastName(String lastName) {
         put(StudentKey.LAST_NAME, lastName);
+    }
+
+    public String getUsername() {
+        return getString(StudentKey.USERNAME);
+    }
+
+    public void setUserName(String username) {
+        put(StudentKey.USERNAME, username);
     }
 
     public String getEmail() {
@@ -52,27 +60,19 @@ public class Student extends ParseObject {
         put(StudentKey.PHONE_NUMBER, phoneNumber);
     }
 
-    public Date getBirthday() {
-        return getDate(StudentKey.BIRTHDAY);
+    public String getBirthday() {
+        return getString(StudentKey.BIRTHDAY);
     }
 
     public void setBirthday(String birthday) {
         put(StudentKey.BIRTHDAY, birthday);
     }
 
-    public String getDescription() {
-        return getString(StudentKey.DESCRIPTION);
-    }
-
-    public void setDescription(String description) {
-        put(StudentKey.DESCRIPTION, description);
-    }
-
-    public ParseFile getProfileImageFile() {
+    public ParseFile getProfileImage() {
         return getParseFile(StudentKey.PROFILE_PHOTO);
     }
 
-    public void setProfileImageFile(ParseFile profileImageFile) {
+    public void setProfileImage(ParseFile profileImageFile) {
         put(StudentKey.PROFILE_PHOTO, profileImageFile);
     }
 
@@ -82,13 +82,5 @@ public class Student extends ParseObject {
 
     public void setTasks(List<Task> tasks) {
         put(StudentKey.TASK_LIST, tasks);
-    }
-
-    public List<Tutor> getTutors() {
-        return getList(StudentKey.TUTOR_LIST);
-    }
-
-    public void setTutors(List<Tutor> tutors) {
-        put(StudentKey.TUTOR_LIST, tutors);
     }
 }

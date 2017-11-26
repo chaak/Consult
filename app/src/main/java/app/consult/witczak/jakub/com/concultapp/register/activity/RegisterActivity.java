@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.register.fragment.RegisterFragment;
@@ -14,11 +13,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterFragm
 
     private Toolbar toolbar;
     private Menu toolbarMenu;
+    private RegisterFragment registerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        registerFragment = RegisterFragment.newInstance();
         setToolbar();
         showRegisterFragment();
     }
@@ -31,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterFragm
 
     private void showRegisterFragment() {
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_register_container, RegisterFragment.newInstance())
+                .add(R.id.fragment_register_container, registerFragment)
                 .addToBackStack(null)
                 .commit();
     }
@@ -47,7 +48,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterFragm
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.save_button:
-                Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+                if (registerFragment.isRegistrationAvailable()){
+                    registerFragment.setUserData();
+                    registerFragment.handleRegisterUser();
+                }
                 return true;
             default:
                 return true;

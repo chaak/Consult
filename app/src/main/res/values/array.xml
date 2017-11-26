@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categoryItems">
+        <item>Matematyka</item>
+        <item>Chemia</item>
+        <item>Fizyka</item>
+        <item>Angielski</item>
+        <item>Biologia</item>
+        <item>Geografia</item>
+        <item>Język polski</item>
+        <item>Historia</item>
+        <item>WOS</item>
+    </string-array>
+</resources>

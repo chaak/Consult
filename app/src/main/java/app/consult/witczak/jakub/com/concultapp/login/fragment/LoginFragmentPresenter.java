@@ -1,8 +1,8 @@
 package app.consult.witczak.jakub.com.concultapp.login.fragment;
 
-import com.parse.LogInCallback;
-import com.parse.ParseException;
 import com.parse.ParseUser;
+
+import app.consult.witczak.jakub.com.concultapp.utils.UserKey;
 
 /**
  * Created by JakubWitczak on 19.11.2017.
@@ -11,7 +11,6 @@ import com.parse.ParseUser;
  */
 public class LoginFragmentPresenter implements LoginFragmentContract.Presenter {
 
-    public static final String IS_STUDENT = "is_student";
     private LoginFragmentContract.View view;
 
     LoginFragmentPresenter(LoginFragmentContract.View view) {
@@ -21,18 +20,15 @@ public class LoginFragmentPresenter implements LoginFragmentContract.Presenter {
     @Override
     public void handleLogin() {
         ParseUser.logInInBackground(view.getUsername(), view.getPassword(),
-                new LogInCallback() {
-                    @Override
-                    public void done(ParseUser parseUser, ParseException e) {
-                        if (parseUser != null) {
-                            if (parseUser.getBoolean(IS_STUDENT)) {
-                                view.startStudentPanel();
-                            } else {
-                                view.startTutorPanel();
-                            }
+                (parseUser, e) -> {
+                    if (parseUser != null) {
+                        if (parseUser.getBoolean(UserKey.IS_STUDENT)) {
+                            view.startStudentPanel();
                         } else {
-                            view.showSnackBar(e.getMessage());
+                            view.startTutorPanel();
                         }
+                    } else {
+                        view.showSnackBar(e.getMessage());
                     }
                 });
 

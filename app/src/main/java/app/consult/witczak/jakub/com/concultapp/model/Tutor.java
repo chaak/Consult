@@ -4,9 +4,9 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
-import java.util.Date;
 import java.util.List;
 
+import app.consult.witczak.jakub.com.concultapp.utils.StudentKey;
 import app.consult.witczak.jakub.com.concultapp.utils.TutorKey;
 
 /**
@@ -36,6 +36,14 @@ public class Tutor extends ParseObject {
         put(TutorKey.FIRST_NAME, lastName);
     }
 
+    public String getUsername() {
+        return getString(StudentKey.USERNAME);
+    }
+
+    public void setUserName(String username) {
+        put(StudentKey.USERNAME, username);
+    }
+
     public String getEmail() {
         return getString(TutorKey.EMAIL);
     }
@@ -52,20 +60,12 @@ public class Tutor extends ParseObject {
         put(TutorKey.PHONE_NUMBER, phoneNumber);
     }
 
-    public Date getBirthday() {
-        return getDate(TutorKey.BIRTHDAY);
+    public String getBirthday() {
+        return getString(TutorKey.BIRTHDAY);
     }
 
     public void setBirthday(String birthday) {
         put(TutorKey.BIRTHDAY, birthday);
-    }
-
-    public String getDescription() {
-        return getString(TutorKey.DESCRIPTION);
-    }
-
-    public void setDescription(String description) {
-        put(TutorKey.DESCRIPTION, description);
     }
 
     public ParseFile getProfileImage() {
@@ -90,13 +90,5 @@ public class Tutor extends ParseObject {
 
     public void setTasks(List<Task> tasks) {
         put(TutorKey.TASK_LIST, tasks);
-    }
-
-    public List<Student> getStudents() {
-        return getList(TutorKey.STUDENT_LIST);
-    }
-
-    public void setStudents(List<Student> students) {
-        put(TutorKey.STUDENT_LIST, students);
     }
 }

@@ -57,21 +57,11 @@ public class LoginFragment extends Fragment implements LoginFragmentContract.Vie
     }
 
     private void setSignInButtonListeners() {
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.handleLogin();
-            }
-        });
+        signInButton.setOnClickListener(v -> presenter.handleLogin());
     }
 
     private void setSignUpButtonListeners() {
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startRegisterActivity();
-            }
-        });
+        signUpButton.setOnClickListener(v -> startRegisterActivity());
     }
 
     private void startRegisterActivity() {
