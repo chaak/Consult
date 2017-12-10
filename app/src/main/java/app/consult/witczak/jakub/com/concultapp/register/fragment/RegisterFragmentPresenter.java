@@ -35,13 +35,9 @@ public class RegisterFragmentPresenter implements RegisterFragmentContract.Prese
                 if (view.getIsStudent()) {
                     setStudent(student);
                     view.startStudentPanel();
-                    // TODO: 26.11.2017 delete logout
-                    ParseUser.logOut();
                 } else {
                     setTutor(tutor);
                     view.startTutorPanel();
-                    // TODO: 26.11.2017 delete logout
-                    ParseUser.logOut();
                 }
             } else {
                 Toast.makeText(view.getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -81,11 +77,12 @@ public class RegisterFragmentPresenter implements RegisterFragmentContract.Prese
 
     @Override
     public void setUserDetails() {
+        parseUser.setUsername(view.getUsername());
+        parseUser.setEmail(view.getEmail());
+        setUserPassword();
         parseUser.put(UserKey.FIRST_NAME, view.getFirstName());
         parseUser.put(UserKey.LAST_NAME, view.getLastName());
-        parseUser.setUsername(view.getUsername());
         parseUser.put(UserKey.PHONE_NUMBER, view.getPhoneNumber());
-        parseUser.setEmail(view.getEmail());
         parseUser.put(UserKey.BIRTHDAY, view.getBirthDate());
         parseUser.put(UserKey.IS_STUDENT, view.getIsStudent());
         setTutorCategory(view.getTutorCategory());
@@ -93,18 +90,17 @@ public class RegisterFragmentPresenter implements RegisterFragmentContract.Prese
 //        parseUser.put("profile_image", view.getProfileImage());
     }
 
-    private void setTutorCategory(String category) {
-        if (!view.getIsStudent()) {
-            parseUser.put(UserKey.CATEGORY, category);
+    private void setUserPassword() {
+        if (Objects.equals(view.getRepeatedPassword(), view.getPassword())) {
+            parseUser.setPassword(view.getPassword());
+        } else {
+            view.showSnackBar(view.getActivity().getString(R.string.hasla_niepasuja));
         }
     }
 
-    @Override
-    public void setPassword(String password) {
-        if (Objects.equals(view.getRepeatedPassword(), password)) {
-            parseUser.setPassword(password);
-        } else {
-            view.showSnackBar(view.getActivity().getString(R.string.hasla_niepasuja));
+    private void setTutorCategory(String category) {
+        if (!view.getIsStudent()) {
+            parseUser.put(UserKey.CATEGORY, category);
         }
     }
 }

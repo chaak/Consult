@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 /**
  * Created by JakubWitczak on 15.11.2017.
- * Copyright (C) Binar::Apps, 2017
+ * Copyright (C), 2017
  * All rights reserved.
  */
 @Retention(SOURCE)

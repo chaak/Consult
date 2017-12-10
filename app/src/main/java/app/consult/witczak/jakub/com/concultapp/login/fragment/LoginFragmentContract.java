@@ -1,7 +1,5 @@
 package app.consult.witczak.jakub.com.concultapp.login.fragment;
 
-import android.app.Activity;
-
 /**
  * Created by JakubWitczak on 19.11.2017.
  * Copyright (C), 2017
@@ -17,8 +15,6 @@ public interface LoginFragmentContract {
         void startStudentPanel();
 
         void startTutorPanel();
-
-        Activity getActivity();
 
         void showSnackBar(String message);
     }

@@ -30,7 +30,7 @@ import com.parse.ParseFile;
 import java.util.Calendar;
 
 import app.consult.witczak.jakub.com.concultapp.R;
-import app.consult.witczak.jakub.com.concultapp.panel.student.StudentPanelActivity;
+import app.consult.witczak.jakub.com.concultapp.panel.student.main.StudentPanelActivity;
 import app.consult.witczak.jakub.com.concultapp.panel.tutor.TutorPanelActivity;
 
 public class RegisterFragment extends Fragment implements RegisterFragmentContract.View {
@@ -226,7 +226,7 @@ public class RegisterFragment extends Fragment implements RegisterFragmentContra
     }
 
     private String getTextFromTextInputLayout(TextInputLayout inputLayout) {
-        return inputLayout.getEditText().getText().toString();
+        return inputLayout.getEditText().getText().toString().trim();
     }
 
     @Override
@@ -282,7 +282,7 @@ public class RegisterFragment extends Fragment implements RegisterFragmentContra
             passwordTextInput.setError(getString(R.string.haslo_wymagane));
             return false;
         } else {
-            presenter.setPassword(getTextFromTextInputLayout(passwordTextInput));
+            getPassword();
             return true;
         }
     }
@@ -347,6 +347,11 @@ public class RegisterFragment extends Fragment implements RegisterFragmentContra
     @Override
     public String getRepeatedPassword() {
         return getTextFromTextInputLayout(repeatPasswordTextInput);
+    }
+
+    @Override
+    public String getPassword() {
+        return getTextFromTextInputLayout(passwordTextInput);
     }
 
     @Override

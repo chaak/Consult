@@ -43,6 +43,8 @@ public interface RegisterFragmentContract {
 
         String getRepeatedPassword();
 
+        String getPassword();
+
         String getFirstName();
 
         String getLastName();
@@ -65,7 +67,5 @@ public interface RegisterFragmentContract {
         boolean isRegistrationAvailable();
 
         void setUserDetails();
-
-        void setPassword(String password);
     }
 }

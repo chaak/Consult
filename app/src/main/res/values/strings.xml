@@ -49,4 +49,17 @@
     <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
     <string name="nazwa_uzwytkownika_wymagana">Pole nazwa użytkownika jest wymagana</string>
     <string name="hasla_niepasuja">Hasła do siebie nie psaują!</string>
+    <string name="student_panel">Panel Studenta</string>
+    <string name="tutor_panel">Panel Korepetytora</string>
+    <string name="find_tutor">Znajdź Korepetytora</string>
+    <string name="tasks">Zadania</string>
+    <string name="my_tutors">Moi Korepetytorzy</string>
+    <string name="logout">Logout</string>
+    <string name="my_students">Moi Uczniowie</string>
+    <string name="to_evaluation">Do Sprawdzenia</string>
+    <string name="math">Mat</string>
+    <string name="geography">Geo</string>
+    <string name="biology">Bio</string>
+    <string name="chemistry">Chem</string>
+    <string name="physic">Fiz</string>
 </resources>

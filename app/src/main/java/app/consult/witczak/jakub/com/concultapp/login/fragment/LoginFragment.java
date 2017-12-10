@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import app.consult.witczak.jakub.com.concultapp.R;
-import app.consult.witczak.jakub.com.concultapp.panel.student.StudentPanelActivity;
+import app.consult.witczak.jakub.com.concultapp.panel.student.main.StudentPanelActivity;
 import app.consult.witczak.jakub.com.concultapp.panel.tutor.TutorPanelActivity;
 import app.consult.witczak.jakub.com.concultapp.register.activity.RegisterActivity;
 

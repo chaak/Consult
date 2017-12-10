@@ -55,6 +55,12 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.On
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
     public void onFragmentInteraction() {
     }
 }
