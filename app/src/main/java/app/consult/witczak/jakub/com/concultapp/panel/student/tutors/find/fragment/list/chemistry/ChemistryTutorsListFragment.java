@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.geography;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.chemistry;
 
 
 import android.os.Bundle;
@@ -15,14 +15,15 @@ import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.adapter.TutorsListAdapter;
 
-public class GeoTutorsListFragment extends Fragment implements GeoTutorsListContract.View {
+public class ChemistryTutorsListFragment extends Fragment implements ChemistryTutorsListContract.View {
 
-    private GeoTutorsListPresenter presenter;
+    private ChemistryTutorsListPresenter presenter;
     private RecyclerView recyclerView;
     private TutorsListAdapter adapter;
 
-    public static GeoTutorsListFragment newInstance() {
-        return new GeoTutorsListFragment();
+
+    public static ChemistryTutorsListFragment newInstance() {
+        return new ChemistryTutorsListFragment();
     }
 
     @Override
@@ -34,7 +35,7 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tutors_list, container, false);
-        presenter = new GeoTutorsListPresenter(this);
+        presenter = new ChemistryTutorsListPresenter(this);
         initializeComponents(view);
         return view;
     }

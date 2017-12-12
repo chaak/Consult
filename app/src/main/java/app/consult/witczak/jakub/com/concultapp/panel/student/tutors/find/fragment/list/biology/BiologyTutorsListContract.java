@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.physic;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.biology;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import app.consult.witczak.jakub.com.concultapp.model.Tutor;
  * Copyright (C), 2017
  * All rights reserved.
  */
-public interface PhysicTutorsListContract {
+public interface BiologyTutorsListContract {
 
     interface View {
         void refreshView(List<Tutor> tutors);

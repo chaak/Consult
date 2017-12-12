@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.math;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.math;
 
 import java.util.List;
 

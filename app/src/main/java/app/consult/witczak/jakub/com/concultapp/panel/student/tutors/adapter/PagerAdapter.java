@@ -5,11 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.defs.PagerAdapterItem;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.biology.BiologyTutorsListFragment;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.chemistry.ChemistryTutorsListFragment;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.geography.GeoTutorsListFragment;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.math.MathTutorsLisFragment;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.physic.PhysicTutorsListFragment;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.biology.BiologyTutorsListFragment;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.chemistry.ChemistryTutorsListFragment;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.geography.GeoTutorsListFragment;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.math.MathTutorsLisFragment;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.physic.PhysicTutorsListFragment;
 
 /**
  * Created by JakubWitczak on 10.12.2017.

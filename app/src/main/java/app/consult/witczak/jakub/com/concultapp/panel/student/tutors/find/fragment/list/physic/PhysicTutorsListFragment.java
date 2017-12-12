@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.physic;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.physic;
 
 
 import android.os.Bundle;

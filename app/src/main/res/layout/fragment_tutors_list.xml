@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.math.MathTutorsLisFragment">
+    tools:context=".panel.student.tutors.find.fragment.list.math.MathTutorsLisFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tutors_list"

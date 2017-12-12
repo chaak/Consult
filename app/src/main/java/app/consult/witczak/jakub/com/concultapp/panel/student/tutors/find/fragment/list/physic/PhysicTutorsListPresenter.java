@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.biology;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.physic;
 
 import android.util.Log;
 
@@ -12,21 +12,21 @@ import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.defs.T
  * Copyright (C), 2017
  * All rights reserved.
  */
-public class BiologyTutorsListPresenter implements BiologyTutorsListContract.Presenter {
+public class PhysicTutorsListPresenter implements PhysicTutorsListContract.Presenter {
 
-    private BiologyTutorsListContract.View view;
+    private PhysicTutorsListContract.View view;
 
-    public BiologyTutorsListPresenter(BiologyTutorsListContract.View view) {
+    public PhysicTutorsListPresenter(PhysicTutorsListContract.View view) {
         this.view = view;
     }
 
     @Override
     public void loadTutors() {
         ParseQuery<Tutor> query = ParseQuery.getQuery(TutorsCategory.TUTOR);
-        query.whereEqualTo(TutorsCategory.CATEGORY, TutorsCategory.BIO);
-        query.findInBackground((bioTutors, e) -> {
+        query.whereEqualTo(TutorsCategory.CATEGORY, TutorsCategory.PHYS);
+        query.findInBackground((chemTutors, e) -> {
             if (e == null) {
-                view.refreshView(bioTutors);
+                view.refreshView(chemTutors);
             } else {
                 // TODO: 12.12.2017 wyswietl komunikat do usera ze nie ma tych tutorow
                 Log.d("Math Tutors", "Error " + e.getMessage());

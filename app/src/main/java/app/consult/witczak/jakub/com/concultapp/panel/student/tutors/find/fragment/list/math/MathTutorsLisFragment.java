@@ -1,5 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.chemistry;
-
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.math;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,34 +14,29 @@ import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.adapter.TutorsListAdapter;
 
-public class ChemistryTutorsListFragment extends Fragment implements ChemistryTutorsListContract.View {
+public class MathTutorsLisFragment extends Fragment implements MathTutorsListContract.View {
 
-    private ChemistryTutorsListPresenter presenter;
+    private MathTutorsListPresenter presenter;
     private RecyclerView recyclerView;
     private TutorsListAdapter adapter;
 
-
-    public static ChemistryTutorsListFragment newInstance() {
-        return new ChemistryTutorsListFragment();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public static MathTutorsLisFragment newInstance() {
+        return new MathTutorsLisFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tutors_list, container, false);
-        presenter = new ChemistryTutorsListPresenter(this);
         initializeComponents(view);
+        presenter = new MathTutorsListPresenter(this);
         return view;
     }
 
     private void initializeComponents(View view) {
         recyclerView = view.findViewById(R.id.tutors_list);
     }
+
 
     @Override
     public void onResume() {

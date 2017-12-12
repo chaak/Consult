@@ -4,6 +4,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import java.io.Serializable;
 import java.util.List;
 
 import app.consult.witczak.jakub.com.concultapp.utils.StudentKey;
@@ -15,7 +16,7 @@ import app.consult.witczak.jakub.com.concultapp.utils.TutorKey;
  * All rights reserved.
  */
 @ParseClassName("Tutor")
-public class Tutor extends ParseObject {
+public class Tutor extends ParseObject implements Serializable {
 
     public Tutor() {
     }

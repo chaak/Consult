@@ -1,4 +1,4 @@
-package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.geography;
+package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.geography;
 
 import java.util.List;
 
