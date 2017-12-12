@@ -33,7 +33,7 @@ public class Tutor extends ParseObject {
     }
 
     public void setLastName(String lastName) {
-        put(TutorKey.FIRST_NAME, lastName);
+        put(TutorKey.LAST_NAME, lastName);
     }
 
     public String getUsername() {

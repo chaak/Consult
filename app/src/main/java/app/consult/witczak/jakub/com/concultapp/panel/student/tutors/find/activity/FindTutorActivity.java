@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import app.consult.witczak.jakub.com.concultapp.R;
@@ -15,6 +16,7 @@ public class FindTutorActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +52,6 @@ public class FindTutorActivity extends AppCompatActivity {
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        setOnTabSelectedListener();
-    }
-
-    private void setOnTabSelectedListener() {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -70,5 +68,10 @@ public class FindTutorActivity extends AppCompatActivity {
 
             }
         });
+        /// /        setOnTabSelectedListener();
+    }
+
+    private void setOnTabSelectedListener() {
+
     }
 }
