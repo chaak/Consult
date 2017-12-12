@@ -105,7 +105,7 @@ public class LoginFragment extends Fragment implements LoginFragmentContract.Vie
             listener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnTutorsDetailsFragmentInteractionListener");
         }
     }
 

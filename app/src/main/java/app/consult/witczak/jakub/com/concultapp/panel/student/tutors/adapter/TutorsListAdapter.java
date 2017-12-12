@@ -21,11 +21,9 @@ import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 public class TutorsListAdapter extends RecyclerView.Adapter {
 
     private List<Tutor> tutors = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private OnTutorsListItemClickListener listener;
 
-    public TutorsListAdapter(List<Tutor> tutors, RecyclerView recyclerView) {
-        this.tutors = tutors;
-        this.recyclerView = recyclerView;
+    public TutorsListAdapter() {
     }
 
     @Override
@@ -37,9 +35,16 @@ public class TutorsListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Tutor tutor = tutors.get(position);
+        ((TutorsListViewHolder) holder).background.setOnClickListener(v -> listener.tutorsListItemPressed(tutor));
         ((TutorsListViewHolder) holder).firstName.setText(tutor.getFirstName());
         ((TutorsListViewHolder) holder).lastName.setText(tutor.getLastName());
     }
+
+    public void updateTutorsList(List<Tutor> tutors) {
+        this.tutors = tutors;
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getItemCount() {
@@ -48,15 +53,25 @@ public class TutorsListAdapter extends RecyclerView.Adapter {
 
     private class TutorsListViewHolder extends RecyclerView.ViewHolder {
 
+        View background;
         ImageView profileImage;
         TextView firstName;
         TextView lastName;
 
         public TutorsListViewHolder(View itemView) {
             super(itemView);
+            background = itemView.findViewById(R.id.tutors_list_item);
             profileImage = itemView.findViewById(R.id.profile_image);
             firstName = itemView.findViewById(R.id.first_name_label);
             lastName = itemView.findViewById(R.id.last_name_label);
         }
+    }
+
+    public void setOnTutorsListItemClickListener(OnTutorsListItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnTutorsListItemClickListener {
+        void tutorsListItemPressed(Tutor tutor);
     }
 }

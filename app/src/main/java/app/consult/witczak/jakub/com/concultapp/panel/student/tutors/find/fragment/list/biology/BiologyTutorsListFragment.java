@@ -1,6 +1,7 @@
 package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.biology;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,12 +15,14 @@ import java.util.List;
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.adapter.TutorsListAdapter;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.geography.GeoTutorsListFragment;
 
 public class BiologyTutorsListFragment extends Fragment implements BiologyTutorsListContract.View {
 
     private BiologyTutorsListPresenter presenter;
     private RecyclerView recyclerView;
     private TutorsListAdapter adapter;
+    private BiologyTutorsListFragmentInteractionWithActivityListener listener;
 
     public static BiologyTutorsListFragment newInstance() {
         return new BiologyTutorsListFragment();
@@ -36,7 +39,15 @@ public class BiologyTutorsListFragment extends Fragment implements BiologyTutors
         View view = inflater.inflate(R.layout.fragment_tutors_list, container, false);
         presenter = new BiologyTutorsListPresenter(this);
         initializeComponents(view);
+        setRecyclerView();
         return view;
+    }
+
+    private void setRecyclerView() {
+        adapter = new TutorsListAdapter();
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
     }
 
     private void initializeComponents(View view) {
@@ -50,9 +61,28 @@ public class BiologyTutorsListFragment extends Fragment implements BiologyTutors
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof BiologyTutorsListFragment.BiologyTutorsListFragmentInteractionWithActivityListener) {
+            listener = (BiologyTutorsListFragment.BiologyTutorsListFragmentInteractionWithActivityListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement BiologyTutorsListFragmentInteractionWithActivityListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
+    @Override
     public void refreshView(List<Tutor> tutors) {
-        adapter = new TutorsListAdapter(tutors, recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        adapter.updateTutorsList(tutors);
+    }
+
+    public interface BiologyTutorsListFragmentInteractionWithActivityListener {
+        void showDetailsFragment(Tutor tutor);
     }
 }

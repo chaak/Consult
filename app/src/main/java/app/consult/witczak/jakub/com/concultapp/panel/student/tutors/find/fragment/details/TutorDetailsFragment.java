@@ -1,11 +1,11 @@
 package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.details;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
@@ -14,8 +14,9 @@ public class TutorDetailsFragment extends Fragment implements TutorDetailsContra
 
     private static final String TUTOR_OBJECT = "tutorObject";
     private Tutor tutor;
-    private OnFragmentInteractionListener listener;
     private TutorDetailsPresenter presenter;
+    private TextView firstName;
+    private TextView lastName;
 
     public static TutorDetailsFragment newInstance(Tutor tutor) {
         TutorDetailsFragment fragment = new TutorDetailsFragment();
@@ -39,31 +40,14 @@ public class TutorDetailsFragment extends Fragment implements TutorDetailsContra
         View view = inflater.inflate(R.layout.fragment_tutor_details, container, false);
         presenter = new TutorDetailsPresenter(this);
         initializeComponents(view);
+
+        firstName.setText(tutor.getFirstName());
+        lastName.setText(tutor.getLastName());
         return view;
     }
 
     private void initializeComponents(View view) {
-
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            listener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction();
+        firstName = view.findViewById(R.id.tutor_first_name);
+        lastName = view.findViewById(R.id.tutor_last_name);
     }
 }

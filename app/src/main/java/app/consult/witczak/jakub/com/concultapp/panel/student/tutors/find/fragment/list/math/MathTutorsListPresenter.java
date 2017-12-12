@@ -16,10 +16,9 @@ public class MathTutorsListPresenter implements MathTutorsListContract.Presenter
 
     private MathTutorsListContract.View view;
 
-    public MathTutorsListPresenter(MathTutorsListContract.View view) {
+    MathTutorsListPresenter(MathTutorsListContract.View view) {
         this.view = view;
     }
-
 
     @Override
     public void loadTutors() {

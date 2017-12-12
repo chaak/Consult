@@ -1,5 +1,6 @@
 package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.math;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ public class MathTutorsLisFragment extends Fragment implements MathTutorsListCon
     private MathTutorsListPresenter presenter;
     private RecyclerView recyclerView;
     private TutorsListAdapter adapter;
+    private MathTutorsListFragmentInteractionWithActivityListener listener;
 
     public static MathTutorsLisFragment newInstance() {
         return new MathTutorsLisFragment();
@@ -28,9 +30,17 @@ public class MathTutorsLisFragment extends Fragment implements MathTutorsListCon
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tutors_list, container, false);
-        initializeComponents(view);
         presenter = new MathTutorsListPresenter(this);
+        initializeComponents(view);
+        setRecyclerView();
         return view;
+    }
+
+    private void setRecyclerView() {
+        adapter = new TutorsListAdapter();
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
     }
 
     private void initializeComponents(View view) {
@@ -46,8 +56,27 @@ public class MathTutorsLisFragment extends Fragment implements MathTutorsListCon
 
     @Override
     public void refreshView(List<Tutor> tutors) {
-        adapter = new TutorsListAdapter(tutors, recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        adapter.updateTutorsList(tutors);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof MathTutorsListFragmentInteractionWithActivityListener) {
+            listener = (MathTutorsListFragmentInteractionWithActivityListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement MathTutorsListFragmentInteractionWithActivityListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
+    public interface MathTutorsListFragmentInteractionWithActivityListener {
+        void showDetailsFragment(Tutor tutor);
     }
 }

@@ -1,6 +1,7 @@
 package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.geography;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
     private GeoTutorsListPresenter presenter;
     private RecyclerView recyclerView;
     private TutorsListAdapter adapter;
+    private GeoTutorsListFragmentInteractionWithActivityListener listener;
 
     public static GeoTutorsListFragment newInstance() {
         return new GeoTutorsListFragment();
@@ -36,11 +38,19 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
         View view = inflater.inflate(R.layout.fragment_tutors_list, container, false);
         presenter = new GeoTutorsListPresenter(this);
         initializeComponents(view);
+        setRecyclerView();
         return view;
     }
 
     private void initializeComponents(View view) {
         recyclerView = view.findViewById(R.id.tutors_list);
+    }
+
+    private void setRecyclerView() {
+        adapter = new TutorsListAdapter();
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -50,9 +60,28 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof GeoTutorsListFragment.GeoTutorsListFragmentInteractionWithActivityListener) {
+            listener = (GeoTutorsListFragment.GeoTutorsListFragmentInteractionWithActivityListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement GeoTutorsListFragmentInteractionWithActivityListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
+    @Override
     public void refreshView(List<Tutor> tutors) {
-        adapter = new TutorsListAdapter(tutors, recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
+        adapter.updateTutorsList(tutors);
+    }
+
+    public interface GeoTutorsListFragmentInteractionWithActivityListener {
+        void showDetailsFragment(Tutor tutor);
     }
 }
