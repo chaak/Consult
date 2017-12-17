@@ -62,4 +62,5 @@
     <string name="biology">Bio</string>
     <string name="chemistry">Chem</string>
     <string name="physic">Fiz</string>
+    <string name="add_tutor">Add tutor</string>
 </resources>

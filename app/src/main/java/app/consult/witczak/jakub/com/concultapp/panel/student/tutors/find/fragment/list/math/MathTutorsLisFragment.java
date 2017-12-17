@@ -38,7 +38,7 @@ public class MathTutorsLisFragment extends Fragment implements MathTutorsListCon
 
     private void setRecyclerView() {
         adapter = new TutorsListAdapter();
-        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsActivity(tutor));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }
@@ -77,6 +77,6 @@ public class MathTutorsLisFragment extends Fragment implements MathTutorsListCon
     }
 
     public interface MathTutorsListFragmentInteractionWithActivityListener {
-        void showDetailsFragment(Tutor tutor);
+        void showDetailsActivity(Tutor tutor);
     }
 }

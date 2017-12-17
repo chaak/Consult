@@ -48,7 +48,7 @@ public class PhysicTutorsListFragment extends Fragment implements PhysicTutorsLi
 
     private void setRecyclerView() {
         adapter = new TutorsListAdapter();
-        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsActivity(tutor));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }
@@ -82,7 +82,7 @@ public class PhysicTutorsListFragment extends Fragment implements PhysicTutorsLi
     }
 
     public interface PhysicTutorsListFragmentInteractionWithActivityListener {
-        void showDetailsFragment(Tutor tutor);
+        void showDetailsActivity(Tutor tutor);
     }
 
 }

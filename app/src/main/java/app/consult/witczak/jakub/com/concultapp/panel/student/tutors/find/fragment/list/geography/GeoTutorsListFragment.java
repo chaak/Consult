@@ -48,7 +48,7 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
 
     private void setRecyclerView() {
         adapter = new TutorsListAdapter();
-        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsActivity(tutor));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }
@@ -82,6 +82,6 @@ public class GeoTutorsListFragment extends Fragment implements GeoTutorsListCont
     }
 
     public interface GeoTutorsListFragmentInteractionWithActivityListener {
-        void showDetailsFragment(Tutor tutor);
+        void showDetailsActivity(Tutor tutor);
     }
 }

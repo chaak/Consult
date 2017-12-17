@@ -35,7 +35,8 @@
         <activity android:name=".panel.tutor.TutorPanelActivity" />
         <activity android:name=".panel.student.tutors.find.activity.FindTutorActivity" />
         <activity android:name=".panel.student.task.TaskActivity" />
-        <activity android:name=".panel.student.tutors.my.MyTutorsActivity"></activity>
+        <activity android:name=".panel.student.tutors.my.MyTutorsActivity" />
+        <activity android:name=".panel.student.tutors.find.activity.details.TutorDetailsActivity"></activity>
     </application>
 
 </manifest>

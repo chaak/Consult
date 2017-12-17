@@ -1,15 +1,18 @@
 package app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
+
+import java.io.Serializable;
 
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.adapter.PagerAdapter;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.activity.details.TutorDetailsActivity;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.biology.BiologyTutorsListFragment;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.chemistry.ChemistryTutorsListFragment;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.geography.GeoTutorsListFragment;
@@ -23,6 +26,7 @@ public class FindTutorActivity extends AppCompatActivity implements
         PhysicTutorsListFragment.PhysicTutorsListFragmentInteractionWithActivityListener,
         ChemistryTutorsListFragment.ChemistryTutorsListFragmentInteractionWithActivityListener {
 
+    public static final String TUTOR_OBJECT = "tutorObject";
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -90,12 +94,9 @@ public class FindTutorActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void showDetailsFragment(Tutor tutor) {
-        // TODO: 12.12.2017 zrob zeby sie wyswitlaly detale w activity lub fragmencie
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.view_pager, TutorDetailsFragment.newInstance(tutor))
-//                .addToBackStack(null)
-//                .commit();
-        Toast.makeText(this, tutor.getFirstName() + " " + tutor.getLastName(), Toast.LENGTH_SHORT).show();
+    public void showDetailsActivity(Tutor tutor) {
+        Intent intent = new Intent(FindTutorActivity.this, TutorDetailsActivity.class);
+        intent.putExtra(TUTOR_OBJECT, (Serializable) tutor);
+        startActivity(intent);
     }
 }

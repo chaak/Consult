@@ -15,7 +15,6 @@ import java.util.List;
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.adapter.TutorsListAdapter;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.fragment.list.biology.BiologyTutorsListFragment;
 
 public class ChemistryTutorsListFragment extends Fragment implements ChemistryTutorsListContract.View {
 
@@ -50,7 +49,7 @@ public class ChemistryTutorsListFragment extends Fragment implements ChemistryTu
 
     private void setRecyclerView() {
         adapter = new TutorsListAdapter();
-        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsFragment(tutor));
+        adapter.setOnTutorsListItemClickListener(tutor -> listener.showDetailsActivity(tutor));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }
@@ -84,6 +83,6 @@ public class ChemistryTutorsListFragment extends Fragment implements ChemistryTu
     }
 
     public interface ChemistryTutorsListFragmentInteractionWithActivityListener {
-        void showDetailsFragment(Tutor tutor);
+        void showDetailsActivity(Tutor tutor);
     }
 }
