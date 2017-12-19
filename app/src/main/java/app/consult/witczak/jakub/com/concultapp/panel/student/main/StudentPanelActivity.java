@@ -13,7 +13,7 @@ import com.parse.ParseUser;
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.panel.student.task.TaskActivity;
 import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.activity.FindTutorActivity;
-import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.my.MyTutorsActivity;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.my.activity.MyTutorsActivity;
 
 public class StudentPanelActivity extends AppCompatActivity {
 

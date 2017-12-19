@@ -92,4 +92,12 @@ public class Tutor extends ParseObject implements Serializable {
     public void setTasks(List<Task> tasks) {
         put(TutorKey.TASK_LIST, tasks);
     }
+
+    public String getNewTutorString() {
+        return getFirstName() + " " + getLastName() + " is your new tutor";
+    }
+
+    public String getTutorsFirstAndLastName(){
+        return getFirstName() + " " + getLastName();
+    }
 }

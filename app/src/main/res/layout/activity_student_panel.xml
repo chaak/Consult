@@ -30,19 +30,19 @@
             android:text="@string/find_tutor" />
 
         <Button
-            android:id="@+id/tasks_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="48dp"
-            android:text="@string/tasks" />
-
-        <Button
             android:id="@+id/my_tutors_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
             android:text="@string/my_tutors" />
+
+        <Button
+            android:id="@+id/tasks_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:text="@string/tasks" />
     </LinearLayout>
 </RelativeLayout>

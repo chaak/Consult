@@ -8,5 +8,11 @@
             android:orderInCategory="100"
             android:title="@string/add_tutor"
             app:showAsAction="always" />
+        <item
+            android:id="@+id/ic_delete_forever"
+            android:icon="@drawable/ic_delete_forever"
+            android:orderInCategory="100"
+            android:title="@string/delete_tutor"
+            app:showAsAction="ifRoom" />
     </group>
 </menu>

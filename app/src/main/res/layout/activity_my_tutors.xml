@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.consult.witczak.jakub.com.concultapp.panel.student.tutors.my.MyTutorsActivity">
+    tools:context="app.consult.witczak.jakub.com.concultapp.panel.student.tutors.my.activity.MyTutorsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_my_tutors"
@@ -14,12 +14,10 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/my_tutors_list"
+    <FrameLayout
+        android:id="@+id/my_tutors_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_my_tutors">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_below="@+id/toolbar_my_tutors" />
 
 </RelativeLayout>

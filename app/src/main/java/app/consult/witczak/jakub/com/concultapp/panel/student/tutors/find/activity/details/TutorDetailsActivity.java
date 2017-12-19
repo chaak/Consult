@@ -14,16 +14,19 @@ import com.parse.ParseUser;
 
 import app.consult.witczak.jakub.com.concultapp.R;
 import app.consult.witczak.jakub.com.concultapp.model.Tutor;
+import app.consult.witczak.jakub.com.concultapp.panel.student.tutors.find.defs.UserItems;
 
 public class TutorDetailsActivity extends AppCompatActivity implements TutorDetailsContract.View {
 
     public static final String TUTOR_OBJECT = "tutorObject";
+    public static final String IS_MY_TUTOR_DETAILS = "isMyTutorDetails";
     private Tutor tutor;
     private TextView firstName;
     private TextView lastName;
     private TutorDetailsPresenter presenter;
     private Toolbar toolbar;
     private Menu toolbarMenu;
+    private boolean isMyTutorDetails = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class TutorDetailsActivity extends AppCompatActivity implements TutorDeta
     private void setToolbar() {
         toolbar = findViewById(R.id.toolbar_details_tutor);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(tutor.getFirstName() + " " + tutor.getLastName());
+        getSupportActionBar().setTitle(tutor.getTutorsFirstAndLastName());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
@@ -48,7 +51,26 @@ public class TutorDetailsActivity extends AppCompatActivity implements TutorDeta
     public boolean onCreateOptionsMenu(Menu menu) {
         this.toolbarMenu = menu;
         getMenuInflater().inflate(R.menu.tutor_details_menu, menu);
+        setVisibilityOfDeleteIcon();
         return true;
+    }
+
+    private void setVisibilityOfDeleteIcon() {
+        if (isMyTutorDetails) {
+            setMyTutorDetailToolbar();
+        } else {
+            setTutorDetailsToolbar(false, true);
+        }
+    }
+
+    private void setTutorDetailsToolbar(boolean visible, boolean visible2) {
+        toolbarMenu.findItem(R.id.ic_delete_forever).setVisible(visible);
+        toolbarMenu.findItem(R.id.add_button).setVisible(visible2);
+    }
+
+    private void setMyTutorDetailToolbar() {
+        setTutorDetailsToolbar(true, false);
+        isMyTutorDetails = false;
     }
 
     @Override
@@ -56,11 +78,10 @@ public class TutorDetailsActivity extends AppCompatActivity implements TutorDeta
         switch (item.getItemId()) {
             case R.id.add_button:
                 // TODO: 17.12.2017 check if there is no the same tutor yet
-                ParseRelation<ParseObject> relation = ParseUser.getCurrentUser().getRelation("tutor_list");
+                ParseRelation<ParseObject> relation = ParseUser.getCurrentUser().getRelation(UserItems.TUTOR_LIST);
                 relation.add(tutor);
                 ParseUser.getCurrentUser().saveInBackground();
-                Toast.makeText(this, tutor.getFirstName() +
-                        " " + tutor.getLastName() + " is your new tutor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, tutor.getNewTutorString(), Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return true;
@@ -75,6 +96,7 @@ public class TutorDetailsActivity extends AppCompatActivity implements TutorDeta
     private void getTutorObject() {
         if (getIntent() != null) {
             tutor = (Tutor) getIntent().getSerializableExtra(TUTOR_OBJECT);
+            isMyTutorDetails = getIntent().getBooleanExtra(IS_MY_TUTOR_DETAILS, false);
         }
     }
 
