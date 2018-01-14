@@ -15,7 +15,7 @@ public class MyTutorsListPresenter implements MyTutorsListContract.Presenter {
 
     private MyTutorsListContract.View view;
 
-    public MyTutorsListPresenter(MyTutorsListContract.View view) {
+    MyTutorsListPresenter(MyTutorsListContract.View view) {
         this.view = view;
     }
 

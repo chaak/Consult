@@ -4,6 +4,8 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import java.io.Serializable;
+
 import app.consult.witczak.jakub.com.concultapp.utils.TaskKey;
 
 /**
@@ -12,7 +14,7 @@ import app.consult.witczak.jakub.com.concultapp.utils.TaskKey;
  * All rights reserved.
  */
 @ParseClassName("Task")
-public class Task extends ParseObject {
+public class Task extends ParseObject implements Serializable {
 
     public Task() {
     }

@@ -64,4 +64,9 @@
     <string name="physic">Fiz</string>
     <string name="add_tutor">Add tutor</string>
     <string name="delete_tutor">Delete tutor</string>
+    <string name="market_label">Ocenione</string>
+    <string name="send_task_label">Wyślij zadanie</string>
+    <string name="send">Send</string>
+    <string name="tytu">Tytuł</string>
+    <string name="opis">Opis</string>
 </resources>

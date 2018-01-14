@@ -42,11 +42,6 @@ public class FindTutorActivity extends AppCompatActivity implements
         setViewPager();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     private void initializeComponents() {
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);

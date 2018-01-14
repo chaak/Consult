@@ -24,6 +24,7 @@ android {
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {
@@ -39,4 +40,5 @@ dependencies {
     implementation 'com.parse:parse-android:1.16.3'
     implementation 'com.parse:parseui-login-android:0.0.2'
     implementation 'com.parse:parseui-widget-android:0.0.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
