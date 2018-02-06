@@ -1,5 +1,6 @@
 package app.consult.witczak.jakub.com.concultapp.login.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class LoginFragment extends Fragment implements LoginFragmentContract.Vie
     private Button signUpButton;
     private ConstraintLayout constraintLayout;
     private OnFragmentInteractionListener listener;
+    private ProgressDialog dialog;
 
     public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
@@ -96,6 +98,17 @@ public class LoginFragment extends Fragment implements LoginFragmentContract.Vie
         Snackbar snackbar = Snackbar
                 .make(constraintLayout, message, Snackbar.LENGTH_LONG);
         snackbar.show();
+    }
+
+    @Override
+    public void showProgressBar() {
+        dialog = ProgressDialog.show(getActivity(), "",
+                "Logging. Please wait...", true);
+    }
+
+    @Override
+    public void hideProgessBar() {
+        dialog.cancel();
     }
 
     @Override

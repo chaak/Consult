@@ -28,7 +28,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.parse.ParseFile;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
@@ -92,7 +91,6 @@ public class SendTaskFragment extends Fragment implements SendTaskFragmentContra
             ParseRelation<Tutor> relation = ParseUser.getCurrentUser().getRelation("tutor_list");
             ParseQuery<Tutor> query = relation.getQuery();
             query.findInBackground((objects, e) -> {
-
                 for (Tutor tutor : objects) {
                     if (Objects.equals(tutor.getTutorsFirstAndLastName().trim(), selectedTutor.trim())) {
 
@@ -107,7 +105,7 @@ public class SendTaskFragment extends Fragment implements SendTaskFragmentContra
                         task.setTaskImage(file);
                         task.saveInBackground();
 
-                        ParseRelation<ParseObject> relationTwo = tutor.getRelation("tasks");
+                        ParseRelation<Task> relationTwo = tutor.getRelation("tasks");
                         relationTwo.add(task);
                         tutor.saveInBackground();
 

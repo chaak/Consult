@@ -17,6 +17,10 @@ public interface LoginFragmentContract {
         void startTutorPanel();
 
         void showSnackBar(String message);
+
+        void showProgressBar();
+
+        void hideProgessBar();
     }
 
     interface Presenter {

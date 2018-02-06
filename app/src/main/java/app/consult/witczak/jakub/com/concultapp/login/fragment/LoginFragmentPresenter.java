@@ -19,16 +19,19 @@ public class LoginFragmentPresenter implements LoginFragmentContract.Presenter {
 
     @Override
     public void handleLogin() {
-
+        view.showProgressBar();
         ParseUser.logInInBackground(view.getUsername(), view.getPassword(), (user, e) -> {
             if (user != null) {
                 if (user.getBoolean(UserKey.IS_STUDENT)) {
                     view.startStudentPanel();
+                    view.hideProgessBar();
                 } else {
                     view.startTutorPanel();
+                    view.hideProgessBar();
                 }
             } else {
                 view.showSnackBar(e.getMessage());
+                view.hideProgessBar();
             }
         });
     }

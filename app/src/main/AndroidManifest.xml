@@ -15,7 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.consultapp.android.fileprovider"
@@ -25,7 +24,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
 
         <activity android:name=".login.activity.LoginActivity">
             <intent-filter>
@@ -52,7 +50,10 @@
         <activity android:name=".panel.student.task.activity.TaskActivity" />
         <activity android:name=".panel.student.tutors.my.activity.MyTutorsActivity" />
         <activity android:name=".panel.student.tutors.find.activity.details.TutorDetailsActivity" />
-        <activity android:name=".panel.student.task.activity.details.EvaluatedTaskActivity"></activity>
+        <activity android:name=".panel.student.task.activity.details.EvaluatedTaskActivity" />
+        <activity android:name=".panel.tutor.myStudents.MyStudentsActivity" />
+        <activity android:name=".panel.tutor.tasks.TasksForTutorActivity" />
+        <activity android:name=".panel.tutor.myStudents.details.StudentDetailsActivity"></activity>
     </application>
 
 </manifest>

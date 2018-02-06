@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.consult.witczak.jakub.com.concultapp.panel.tutor.myStudents.details.StudentDetailsActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_details_student"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/student_first_name"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:id="@+id/student_first_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/student_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_details_student"
+        tools:text="first" />
+
+    <TextView
+        android:id="@+id/student_last_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/student_first_name"
+        tools:text="last" />
+</android.support.constraint.ConstraintLayout>
